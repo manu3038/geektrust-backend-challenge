@@ -26,3 +26,7 @@ insert into person values(14,'M','vasa',3);
 insert into person values(15,'M','kriya',4);
 insert into person values(16,'F','krithi',4);
 
+insert into person values(17,'F','chitra',null);
+
+--id and father_id and mother_id
+insert into parent values(4,6,17);
