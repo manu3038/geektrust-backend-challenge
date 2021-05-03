@@ -29,4 +29,36 @@ insert into person values(16,'F','krithi',4);
 insert into person values(17,'F','chitra',null);
 
 --id and father_id and mother_id
-insert into parent values(4,6,17);
+insert into parent values(5,6,17);
+
+insert into person values(18,'F','jnki',5);
+insert into person values(19,'M','ahit',5);
+
+insert into person values(20,'M','arit',null);
+
+insert into parent values(6,20,18);
+
+insert into person values(21,'F','lavnya',6);
+insert into person values(30,'M','laki',6);
+
+insert into person values(31,'F','lika',null);
+
+insert into parent values(7,5,31);
+
+insert into person values(22,'F','chika',7);
+insert into person values(23,'F','vila',7);
+
+insert into person values(24,'F','amba',null);
+
+insert into parent values(8,3,24);
+
+insert into person values(25,'F','dritha',8);
+insert into person values(26,'F','tritha',8);
+insert into person values(27,'M','vritha',8);
+
+insert into person values(28,'M','jaya',null);
+
+insert into parent values(9,28,25);
+
+insert into person values(29,'M','yodhan',9);
+
