@@ -23,21 +23,22 @@ public class WifeServiceImpl extends PersonServiceImpl implements WifeService {
     }
 
     @Override
-    public Person addChild(Person mother, Person newChild) {
-        Person newlyAddedChild = new Person();
-        if(super.personRepository.existsById(mother.getId())){ // mother is present in the tree
+    public Person addChild(Person mother, String newPersonName, String newPersonGender) {
+        Person newlyAddedChild = null;
+        Person child = new Person();
+        if(mother.getGender().equalsIgnoreCase("f")) {
             Optional<Parent> isPresentInParent = super.parentRepository.findByMother(mother);
-            if (isPresentInParent.isPresent()){ // if mother is already a parent use that
-                newChild.setParent(isPresentInParent.get());
+            if (isPresentInParent.isPresent()) { // if mother is already a parent use that
+                child.setParent(isPresentInParent.get());
             } else { // else add her to parent first then make her parent for the child
-                Parent newParentAdd = new Parent();
-                newParentAdd.setMother(mother);
-                Parent newlyAddedParent = super.parentRepository.save(newParentAdd);
-                newChild.setParent(newlyAddedParent);
+                Parent newParentAddObj = new Parent();
+                newParentAddObj.setMother(mother);
+                Parent newlyAddedParent = super.parentRepository.save(newParentAddObj);
+                child.setParent(newlyAddedParent);
             }
-            newlyAddedChild = super.personRepository.save(newChild);
-        } else {
-            System.out.println("PERSON_NOT_FOUND");
+            child.setName(newPersonName);
+            child.setGender(newPersonGender);
+            newlyAddedChild = super.personRepository.save(child);
         }
         return newlyAddedChild;
     }

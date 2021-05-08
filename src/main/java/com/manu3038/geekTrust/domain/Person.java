@@ -13,7 +13,7 @@ public class Person {
 
     private String gender;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     private Parent parent;
 
     @Override
